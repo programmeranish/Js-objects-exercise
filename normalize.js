@@ -17,13 +17,16 @@ let childs = [];
 
 function pushChild(obj) {
   if (obj.children === undefined) {
-    console.log("unidentified detected", obj);
     childs.push(obj);
   } else {
-    console.log("objs aree:", obj.children[0]);
-    // obj.children.foreach((obj) => {
-    //   pushChild(obj);
-    // });
+    let childrensid = []
+    obj.children.forEach((obj) => {
+      pushChild(obj);
+      childrensid.push(obj.id)
+      
+    });
+    obj.push(...obj,{"childrens:",childrensid})
+    childs.push(obj)
   }
 }
 
